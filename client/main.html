@@ -1,0 +1,114 @@
+<!--
+IT 328
+WeeklyPlanner
+This is the homepage for Weekly Project Planner
+-->
+
+<head>
+  <title>Weekly Project Planner</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project Manager</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">My Projects</a></li>
+          <li><a href="#">Team Members</a></li>
+        </ul>
+        
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search for a task">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Preferences</a></li>
+              <li><a href="#">Change password</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <br><center><h1>Weekly Schedule</h1></center><br>
+  <hr>
+  
+  <div class="container">
+    
+  <div class="row seven-cols">
+    <div class="row vdivide">
+      <div class="col-md-1">{{> Monday}}</div>
+      <div class="col-md-1">{{> Tuesday}}</div>
+      <div class="col-md-1">{{> Wednesday}}</div>
+      <div class="col-md-1">{{> Thursday}}</div>
+      <div class="col-md-1">{{> Friday}}</div>
+      <div class="col-md-1">{{> Saturday}}</div>
+      <div class="col-md-1">{{> Sunday}}</div>
+    </div>
+    <br>
+  </div>
+
+  <footer class="footer">
+    <div class = "btn-group">
+      {{> TaskBar}}
+    </div>
+  </footer>
+
+</div> <!-- Container -->
+</body>
+
+<template name="TaskBar">
+  <button type="button" class="btn btn-success">Add task</button>
+  <button type="button" class="btn btn-danger">Delete task</button>
+  <button type="button" class="btn btn-warning">Share your schedule</button>
+</template>
+
+<template name="Monday">
+  <h2>Mon</h2>
+</template>
+
+<template name="Tuesday">
+  <h2>Tues</h2>
+</template>
+
+<template name="Wednesday">
+  <h2>Wed</h2>
+</template>
+
+<template name="Thursday">
+  <h2>Thurs</h2>
+</template>
+
+<template name="Friday">
+  <h2>Fri</h2>
+</template>
+
+<template name="Saturday">
+  <h2>Sar</h2>
+</template>
+
+<template name="Sunday">
+  <h2>Sun</h2>
+</template>
+
