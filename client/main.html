@@ -55,19 +55,33 @@ This is the homepage for Weekly Project Planner
   <hr>
   
   <div class="container">
+  <table class="table table-inverse">
+   <thead class="thead-inverse">
+    <tr>
+      <th>{{> Monday}}</th>
+      <th>{{> Tuesday}}</th>
+      <th>{{> Wednesday}}</th>
+      <th>{{> Thursday}}</th>
+      <th>{{> Friday}}</th>
+      <th>{{> Saturday}}</th>
+      <th>{{> Sunday}}</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+      <td>Nothing yet. <br>Click to add.</td>
+    </tr>
     
-  <div class="row seven-cols">
-    <div class="row vdivide">
-      <div class="col-md-1">{{> Monday}}</div>
-      <div class="col-md-1">{{> Tuesday}}</div>
-      <div class="col-md-1">{{> Wednesday}}</div>
-      <div class="col-md-1">{{> Thursday}}</div>
-      <div class="col-md-1">{{> Friday}}</div>
-      <div class="col-md-1">{{> Saturday}}</div>
-      <div class="col-md-1">{{> Sunday}}</div>
-    </div>
-    <br>
-  </div>
+    
+  </tbody>
+</table>
 
   <footer class="footer">
     <div class = "btn-group">
@@ -105,7 +119,7 @@ This is the homepage for Weekly Project Planner
 </template>
 
 <template name="Saturday">
-  <h2>Sar</h2>
+  <h2>Sat</h2>
 </template>
 
 <template name="Sunday">
