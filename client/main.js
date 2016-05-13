@@ -43,15 +43,14 @@ Template.TaskBar.events({
   
   'click #clear': function () {
      $('#clearTask').modal('show');
-  },
-  
-  'click #clearBtn': function () {
-     var choice = document.getElementById("selectClearDay");
-      var day = choice.options[choice.selectedIndex].value;
-      
-      tasksCollection.find({"day" : day}).forEach(function(tasks) {
-        tasksCollection.remove({"_id": tasks._id});
-      });
+     $('#clearBtn').on('click', function(){
+        var choice = document.getElementById("selectClearDay");
+        var day = choice.options[choice.selectedIndex].value;
+        tasksCollection.find().forEach(function(tasks) {
+            tasksCollection.remove({"_id": tasks._id});
+        });
+        $('#clearTask').modal('hide');
+     });
   }
 });
 
@@ -91,7 +90,7 @@ Template.Saturday.helpers({
     return tasksCollection.find({"day" : "Sat"});
   }
 });
-Template.Sun.helpers({
+Template.Sunday.helpers({
   tasksList: function() {
     return tasksCollection.find({"day" : "Sun"});
   }
