@@ -1,49 +1,101 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor'
 import { ReactiveVar } from 'meteor/reactive-var';
+import { tasksCollection } from '../collections/collections.js';
 
 import './main.html';
 
-Session.set('TaskCollection', ' ');
-
-Template.Table.events({
-  'click tr': function(e){
+Template.addTask.events({
+    
+    'click td': function(e){
         e.preventDefault();
         $('#addTask').modal('show');
-    }
-});
-
-Template.addTask.events({
-  'click #save': function(e) {
-    e.preventDefault();
+    },
     
-    var taskname = {
-      name: $('#taskname').val()
-    }
+  'click #save': function() {
+    var taskname = $('#taskname').val();
+    var time = $('#time').val();
+    var tags = $('#tags').val();
     
-    var hashtags = {
-      name: $('#hashtags').val()
-    }
-
-    Meteor.call('addNewTask', taskname, function(error, result) {
-      if (error) {
-        alert(error);
-      }
+    var choice = document.getElementById("selectDay");
+    var day = choice.options[choice.selectedIndex].value;
+        
+    tasksCollection.insert({
+      "taskname": taskname,
+      "time": time,
+      "tags": tags,
+      "day": day
     });
 
     $('#addTask').modal('hide');
+    
   }
 });
 
-Meteor.methods({
-  addNewTask: function(taskname) {
-    check(taskname.name, String);
-
-    _.extend(taskname, {"rank": 0});
-    TaskCollection.insert(taskname);
+Template.TaskBar.events({
+  'click #delete': function () {
+    if (confirm("Wipe out everything for this week?")) {
+        tasksCollection.find().forEach(function(tasks) {
+          tasksCollection.remove({"_id": tasks._id});
+        });
+    }
+  },
+  
+  'click #clear': function () {
+     $('#clearTask').modal('show');
+  },
+  
+  'click #clearBtn': function () {
+     var choice = document.getElementById("selectClearDay");
+      var day = choice.options[choice.selectedIndex].value;
+      
+      tasksCollection.find({"day" : day}).forEach(function(tasks) {
+        tasksCollection.remove({"_id": tasks._id});
+      });
   }
 });
 
+Template.Monday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Mon"});
+    
+    var message = "Add something";
+    if (tasksCollection.find({"day" : "Mon"}).count() == 0) {
+      return message;
+    }
+  }
+});
+
+Template.Tuesday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Tue"});
+  }
+});
+Template.Wednesday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Wed"});
+  }
+});
+Template.Thursday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Thu"});
+  }
+});
+Template.Friday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Fri"});
+  }
+});
+Template.Saturday.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Sat"});
+  }
+});
+Template.Sun.helpers({
+  tasksList: function() {
+    return tasksCollection.find({"day" : "Sun"});
+  }
+});
 
 
 

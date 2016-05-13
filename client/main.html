@@ -52,11 +52,12 @@ This is the homepage for Weekly Project Planner
     </div><!-- /.container-fluid -->
   </nav>
   <br><center><h1>Weekly Schedule</h1></center><br>
+  <center><p>Click any where to start adding tasks to your schedule!</p></center>
   <hr>
   
   <div class="container">
-    {{> Table}}
     {{> addTask}}
+    {{> clearTask}}
 
   <footer class="footer">
     <div class = "btn-group">
@@ -68,72 +69,38 @@ This is the homepage for Weekly Project Planner
 </body>
 
 <template name="TaskBar">
-  <button type="button" class="btn btn-success">Add task</button>
-  <button type="button" class="btn btn-danger">Delete task</button>
-  <button type="button" class="btn btn-warning">Share your schedule</button>
+  <button type="button" class= "btn btn-warning" id = "clear">Clear</button>
+  <button type="button" class= "btn btn-danger" id = "delete">Wipe out!</button>
+  <button type="button" class= "btn btn-success" id = "share">Share your schedule</button>
 </template>
 
-<template name="Monday">
-  <h2>Mon</h2>
-</template>
-
-<template name="Tuesday">
-  <h2>Tues</h2>
-</template>
-
-<template name="Wednesday">
-  <h2>Wed</h2>
-</template>
-
-<template name="Thursday">
-  <h2>Thurs</h2>
-</template>
-
-<template name="Friday">
-  <h2>Fri</h2>
-</template>
-
-<template name="Saturday">
-  <h2>Sat</h2>
-</template>
-
-<template name="Sunday">
-  <h2>Sun</h2>
-</template>
-
-<template name="MondayTasks">
-  <td>Nothing yet. <br>Click to add.</td>
-</template>
-
-<template name="Table">
-  <table class="table table-inverse">
+<template name="addTask">
+  <table class="table table-inverse" id = "table">
    <thead class="thead-inverse">
     <tr>
-      <th>{{> Monday}}</th>
-      <th>{{> Tuesday}}</th>
-      <th>{{> Wednesday}}</th>
-      <th>{{> Thursday}}</th>
-      <th>{{> Friday}}</th>
-      <th>{{> Saturday}}</th>
-      <th>{{> Sunday}}</th>
+      <th><h2>Mon</h2></th>
+      <th><h2>Tues</h2></th>
+      <th><h2>Wed</h2></th>
+      <th><h2>Thurs</h2></th>
+      <th><h2>Fri</h2></th>
+      <th><h2>Sat</h2></th>
+      <th><h2>Sun</h2></th>
     </tr>
   </thead>
    
   <tbody>
     <tr class = "mySchedule">
-      {{> MondayTasks}}
-      <td >Nothing yet. <br>Click to add.</td>
-      <td>Nothing yet. <br>Click to add.</td>
-      <td>Nothing yet. <br>Click to add.</td>
-      <td>Nothing yet. <br>Click to add.</td>
-      <td>Nothing yet. <br>Click to add.</td>
-      <td>Nothing yet. <br>Click to add.</td>
+      <td id = "Mon">{{> Monday}}</td>
+      <td id = "Tue">{{> Tuesday}}</td>
+      <td id = "Wed">{{> Wednesday}}</td>
+      <td id = "Thu">{{> Thursday}}</td>
+      <td id = "Fri">{{> Friday}}</td>
+      <td id = "Sat">{{> Saturday}}</td>
+      <td id = "Sun">{{> Sunday}}</td>
     </tr>   
   </tbody>
 </table>
-</template>
-
-<template name="addTask">
+  
   <div class="modal fade" id="addTask">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -143,21 +110,180 @@ This is the homepage for Weekly Project Planner
         </div>
 
         <div class="modal-body">
-          <label for="name">Task Name: </label>
+          <label for="taskname">Task Name: </label>
           <input type="text" id="taskname" />
         </div>
         
         <div class="modal-body">
-          <label for="name">Hashtags: </label>
-          <input type="text" id="hashtags" />
+          <label for="time">Time: </label>
+          <input type="time" id="time" value="08:00"/>
         </div>
-
+        
+        <div class="modal-body">
+          <label for="tags">Tags: </label>
+          <input type="text" id="tags" />
+        </div>
+        
+        <div class="modal-body">
+          <label for="tags">Day: </label>
+          <select id ="selectDay">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+          </select>
+        </div>
+      
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="save">Save</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
-
+          
       </div>
     </div>
   </div>
 </template>
+
+<template name="clearTask">
+  <div class="modal fade" id="clearTask">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        
+        <div class="modal-header-clear">
+          <h4 class="modal-title">Pick a day to clear all tasks for that day:</h4>
+        </div>
+        
+        <div class="modal-body">
+          <label for="tags">Day: </label>
+          
+          <select id ="selectClearDay">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+          </select>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="clearBtn" >Clear</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+        
+        </div>
+    </div>
+  </div>
+</template>
+
+<template name="Monday">
+  <ul class = "list-group">
+    {{message}}
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Tuesday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Wednesday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Thursday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Friday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Saturday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="Sunday">
+  <ul class = "list-group">
+    {{#each tasksList}}
+    <div class="flowingdown">
+      <div class="something-inside">
+         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+      </div>
+      <div class="something-inside-but-hidden">
+         <li class = "list-group-item">Tags: {{tags}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</template>
+  
+

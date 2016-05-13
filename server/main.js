@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
+import { tasksCollection } from '../collections/collections.js';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  // Remove any database values that are present
+  tasksCollection.remove({}); //Delete all records, only works server-side.
 });

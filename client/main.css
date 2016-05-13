@@ -5,6 +5,43 @@
   height: 60px;
 }
 
-.table tr {
+.table td {
     cursor: pointer;
+}
+
+form  { display: table;      }
+p       { display: table-row;  }
+label  { display: table-cell; }
+input  { display: table-cell; }
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #4cae4c;
+    background-color: #5cb85c;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+ 
+ .modal-header-clear {
+    padding:9px 15px;
+    border-bottom:1px solid #eea236;
+    background-color: #f0ad4e;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+ 
+.something-inside-but-hidden {
+  display:none; 
+}
+
+.flowingdown:hover .something-inside-but-hidden {
+  display: block;
 }
