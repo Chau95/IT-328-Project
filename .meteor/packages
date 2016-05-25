@@ -23,3 +23,5 @@ twbs:bootstrap
 session
 accounts-ui
 accounts-password
+accounts-google
+accounts-github
