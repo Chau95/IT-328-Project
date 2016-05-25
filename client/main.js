@@ -5,6 +5,20 @@ import { tasksCollection } from '../collections/collections.js';
 
 import './main.html';
 
+//pull down some published data from the server
+Meteor.subscribe('userData');
+userData = new Mongo.Collection('userData');
+
+Accounts.ui.config({
+  passwordSignupFields: "EMAIL_ONLY"
+});
+
+Template.content.helpers({
+  "isLoggedIn": function(){
+    return Meteor.user() != null;
+  }
+});
+
 Template.addTask.events({
     
     'click td': function(e){
