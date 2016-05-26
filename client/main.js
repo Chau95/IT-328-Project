@@ -13,6 +13,10 @@ Accounts.ui.config({
   passwordSignupFields: "EMAIL_ONLY"
 });
 
+Accounts.config({
+   loginExpirationInDays: null
+});
+
 Template.content.helpers({
   "isLoggedIn": function(){
     return Meteor.user() != null;

@@ -45,3 +45,16 @@ input  { display: table-cell; }
 .flowingdown:hover .something-inside-but-hidden {
   display: block;
 }
+
+#loginButton{
+    margin-top: 10px;
+}
+
+.jumbotron {
+    position: relative;
+    background-image: url('../public/assets/jumbotronbackground.gif');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+}

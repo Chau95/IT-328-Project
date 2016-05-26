@@ -23,14 +23,25 @@ This is the homepage for Weekly Project Planner
 <template name="login">
   <div class="jumbotron">
     <div class="container">
-      <h1>Welcome to the ZXZ weekly planner</h1>
-      <p>You plan, you manage!</p>
+      <center><h1>Welcome to the ZXZ weekly planner</h1> </center><br>
+      <h3 style = "padding-left: 150px;">You plan, you manage!</h3>
     </div>
   </div>
+  
   <div class="container">
-    <h3>Please sign in</h3>
-    {{> loginButtons}}
+    <div class = "myLogin">
+      <h3>Please sign in:</h3>
+      <button class="nav-link dropdown-toggle" id = "loginButton"> {{> loginButtons}} </button>
+    </div>
+    
+    <div class = "myIntro">
+      <h3 style = "float: right;">We aim to provide you a helpful tool <br> <br>
+      that you could rely on to plan your whole week <br> <br>
+      and even share it with friends and colleagues! <br><br><br><br>
+      Log in now to start!</h3>
+    </div>
   </div>
+  
 </template>
 
 <template name="navBar">
@@ -63,9 +74,7 @@ This is the homepage for Weekly Project Planner
         
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">About</a></li>
-          <li>
-            {{> loginButtons}}
-          </li>
+          <li> <button class="nav-link dropdown-toggle" id = "loginButton"> {{> loginButtons}} </button> </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
