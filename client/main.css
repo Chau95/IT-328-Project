@@ -51,8 +51,9 @@ input  { display: table-cell; }
 }
 
 .jumbotron {
+    background-color:#779DD1;
     position: relative;
-    background-image: url('../public/assets/jumbotronbackground.gif');
+    background-image: url("../public/assets/jumbotronBackground.jpg");
     width: 100%;
     height: 100%;
     background-size: cover;
