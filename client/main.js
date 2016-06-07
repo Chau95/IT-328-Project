@@ -32,6 +32,21 @@ Template.addTask.events({
     
   'click #save': function(e) {
     e.preventDefault();
+    
+    /*Old code
+     *var taskname = $('#taskname').val();
+    var time = $('#time').val();
+    var tags = $('#tags').val();
+    
+    var choice = document.getElementById("selectDay");
+    var day = choice.options[choice.selectedIndex].value;
+        
+    tasksCollection.insert({
+      "taskname": taskname,
+      "time": time,
+      "tags": tags,
+      "day": day
+    });*/
 
     var newTask = {
       "taskName" : $('#taskName').val(),
@@ -40,7 +55,7 @@ Template.addTask.events({
       "day" : $('#selectDay').val()
     };
     
-    Meteor.call('taskInsert', newTask);
+    Meteor.call('taskInsert', newTask);//new code
 
     $('#addTask').modal('hide');
     
@@ -51,7 +66,10 @@ Template.TaskBar.events({
   'click #removeAll': function (e) {
     e.preventDefault();
     if (confirm("Wipe out everything for this week?")) {
-        Meteor.call('taskRemoveAll');
+      /*Old Code
+       *tasksCollection.find().forEach(function(tasks) {
+          tasksCollection.remove({"_id": tasks._id});*/
+      Meteor.call('taskRemoveAll');//new code
     }
   },
   
@@ -59,12 +77,13 @@ Template.TaskBar.events({
      e.preventDefault();
      $('#clearTask').modal('show');
      $('#clearBtn').on('click', function(){
-        /*var choice = document.getElementById("selectClearDay");
+        /*Old Code
+         *var choice = document.getElementById("selectClearDay");
         var day = choice.options[choice.selectedIndex].value;
         tasksCollection.find().forEach(function(tasks) {
             tasksCollection.remove({"_id": tasks._id});
         });*/
-        Meteor.call('taskDeleteByDay', $('#selectClearDay').val());
+        Meteor.call('taskDeleteByDay', $('#selectClearDay').val());//new code
         $('#clearTask').modal('hide');
      });
   }
@@ -72,50 +91,57 @@ Template.TaskBar.events({
 
 Template.Monday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Mon"});
+    /*Old Code
+     *return tasksCollection.find({"day" : "Mon"});
     
     var message = "Add something";
     if (tasksCollection.find({"day" : "Mon"}).count() == 0) {
       return message;
     }*/
-    Meteor.call('getTaskByDay', "Mon");
+    Meteor.call('getTaskByDay', "Mon");//new code
   }
 });
 
 Template.Tuesday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Tue"});*/
-    Meteor.call('getTaskByDay', "Tue");
+    /*Old Code
+    return tasksCollection.find({"day" : "Tue"});*/
+    Meteor.call('getTaskByDay', "Tue");//new code
   }
 });
 Template.Wednesday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Wed"});*/
-    Meteor.call('getTaskByDay', "Wed");
+    /*Old code
+    return tasksCollection.find({"day" : "Wed"});*/
+    Meteor.call('getTaskByDay', "Wed");//new code
   }
 });
 Template.Thursday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Thu"});*/
-    Meteor.call('getTaskByDay', "Thu");
+    /*Old code
+    return tasksCollection.find({"day" : "Thu"});*/
+    Meteor.call('getTaskByDay', "Thu");//new code
   }
 });
 Template.Friday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Fri"});*/
-    Meteor.call('getTaskByDay', "Fri");
+    /*Old code
+    return tasksCollection.find({"day" : "Fri"});*/
+    Meteor.call('getTaskByDay', "Fri");//new code
   }
 });
 Template.Saturday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Sat"});*/
-    Meteor.call('getTaskByDay', "Sat");
+    /*Old code
+    return tasksCollection.find({"day" : "Sat"});*/
+    Meteor.call('getTaskByDay', "Sat");//new code
   }
 });
 Template.Sunday.helpers({
   tasksList: function() {
-    /*return tasksCollection.find({"day" : "Sun"});*/
-    Meteor.call('getTaskByDay', "Sun");
+    /*Old code
+    return tasksCollection.find({"day" : "Sun"});*/
+    Meteor.call('getTaskByDay', "Sun");//new code
   }
 });
 
