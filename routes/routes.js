@@ -13,19 +13,31 @@ Router.route('/', function() {
         this.redirect('/schedule'); //redirect user to content page
 });
 
+
 //Use a hook to prevent unauthorized access to templates with data
 Router.onBeforeAction(function() {
     //Make sure the user is logged in
     if (!Meteor.user() && !Meteor.loggingIn()) {
         this.redirect('/login');
     } else {
+        //this.redirect('/schedule');
         this.next(); //tell the router to continue with its business
-        this.redirect('/schedule');
+        this.render('loggedInContent');
+        
     }
 }, {
     except: ['login']
 });
 
+/*
+var goToDashboard = function(pause) {
+  if (Meteor.user()) {
+    Router.go('/schedule');
+  } else {
+    this.next();
+  }
+};
+*/
 /*
 Router.route('/viewProduct/:_id', function() {
     this.render('viewProduct', {

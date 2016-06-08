@@ -7,6 +7,7 @@ import './main.html';
 
 //pull down some published data from the server
 Meteor.subscribe('userData');
+Meteor.subscribe('data');
 userData = new Mongo.Collection('userData');
 
 Accounts.ui.config({
@@ -91,57 +92,57 @@ Template.TaskBar.events({
 
 Template.Monday.helpers({
   tasksList: function() {
-    /*Old Code
-     *return tasksCollection.find({"day" : "Mon"});
-    
+    //Old Code
+     return tasksCollection.find({"day" : "Mon"});
+    /*
     var message = "Add something";
     if (tasksCollection.find({"day" : "Mon"}).count() == 0) {
       return message;
     }*/
-    Meteor.call('getTaskByDay', "Mon");//new code
+    //Meteor.call('getTaskByDay', "Mon");//new code
   }
 });
 
 Template.Tuesday.helpers({
   tasksList: function() {
-    /*Old Code
-    return tasksCollection.find({"day" : "Tue"});*/
-    Meteor.call('getTaskByDay', "Tue");//new code
+    //Old Code
+    return tasksCollection.find({"day" : "Tue"});
+     //Meteor.call('getTaskByDay', "Tue");//new code
   }
 });
 Template.Wednesday.helpers({
   tasksList: function() {
-    /*Old code
-    return tasksCollection.find({"day" : "Wed"});*/
-    Meteor.call('getTaskByDay', "Wed");//new code
+    //Old code
+    return tasksCollection.find({"day" : "Wed"});
+    //Meteor.call('getTaskByDay', "Wed");//new code
   }
 });
 Template.Thursday.helpers({
   tasksList: function() {
-    /*Old code
-    return tasksCollection.find({"day" : "Thu"});*/
-    Meteor.call('getTaskByDay', "Thu");//new code
+    //Old code
+    return tasksCollection.find({"day" : "Thu"});
+    //Meteor.call('getTaskByDay', "Thu");//new code
   }
 });
 Template.Friday.helpers({
   tasksList: function() {
-    /*Old code
-    return tasksCollection.find({"day" : "Fri"});*/
-    Meteor.call('getTaskByDay', "Fri");//new code
+    //Old code
+    return tasksCollection.find({"day" : "Fri"});
+    //Meteor.call('getTaskByDay', "Fri");//new code
   }
 });
 Template.Saturday.helpers({
   tasksList: function() {
-    /*Old code
-    return tasksCollection.find({"day" : "Sat"});*/
-    Meteor.call('getTaskByDay', "Sat");//new code
+    //Old code
+    return tasksCollection.find({"day" : "Sat"});
+    //Meteor.call('getTaskByDay', "Sat");//new code
   }
 });
 Template.Sunday.helpers({
   tasksList: function() {
-    /*Old code
-    return tasksCollection.find({"day" : "Sun"});*/
-    Meteor.call('getTaskByDay', "Sun");//new code
+    //Old code
+    return tasksCollection.find({"day" : "Sun"});
+    //Meteor.call('getTaskByDay', "Sun");//new code
   }
 });
 

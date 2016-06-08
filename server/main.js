@@ -19,6 +19,7 @@ Meteor.methods({
     taskRemoveAll: function(){
         tasksCollection.remove({});
     },
+    /*
     taskUpdate: function(updatedTask){
         tasksCollection.update({"_id": updatedTask._id}, {"set":{
             "taskname": updatedTask.taskname,
@@ -26,7 +27,7 @@ Meteor.methods({
             "tags": updatedTask.tags,
             "day": updatedTask.day
         }});
-    },
+    },*/
     getTaskByDay: function(day){
       return tasksCollection.find({"day": day});
     }
@@ -43,4 +44,8 @@ Meteor.publish('userData', function(){
     {
         this.ready();//done...    
     }
+});
+
+Meteor.publish('data', function(){
+  return tasksCollection.find();
 });

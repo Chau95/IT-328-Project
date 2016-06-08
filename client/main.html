@@ -82,7 +82,7 @@ This is the homepage for Weekly Project Planner
 
 <template name="loggedInContent">
   {{> navBar}}
-  <br><center><h1>Weekly Schedule</h1></center><br>
+  <br><center><h1 class = "title1">Weekly Schedule</h1></center><br>
   <hr>
   <div class="container">
     {{> addTask}}
@@ -210,14 +210,13 @@ This is the homepage for Weekly Project Planner
 
 <template name="Monday">
   <ul class = "list-group">
-    {{message}}
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -229,10 +228,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -244,10 +243,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -259,10 +258,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -274,10 +273,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -289,10 +288,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}
@@ -304,10 +303,10 @@ This is the homepage for Weekly Project Planner
     {{#each tasksList}}
     <div class="flowingdown">
       <div class="something-inside">
-         <li class = "list-group-item">{{taskname}} at {{time}}</li>
+         <li class = "list-group-item">{{taskName}} at {{time}}</li>
       </div>
       <div class="something-inside-but-hidden">
-         <li class = "list-group-item">Tags: {{tags}}</li>
+         <li class = "list-group-item tags">Tags: {{tags}}</li>
       </div>
     </div>
     {{/each}}

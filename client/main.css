@@ -38,8 +38,12 @@ input  { display: table-cell; }
      border-top-right-radius: 5px;
  }
  
+.something-inside{
+  margin-top: 10px;
+}
+ 
 .something-inside-but-hidden {
-  display:none; 
+  display:none;
 }
 
 .flowingdown:hover .something-inside-but-hidden {
@@ -61,14 +65,19 @@ input  { display: table-cell; }
 }
 
 .Color1 {
-     background-color: #cccccc !important;
+     background-color: #99ccff !important;
 }
 
 .Color2 {
-     background-color: #e6e6e6 !important;
+     background-color: #cce6ff !important;
 }
 
-h1 {
+.tags{
+  background-color:#e6e6e6;
+  margin-bottom: 10px;
+}
+
+.title1 {
 	margin: 1em 0 0.4em 0;
 	color: #343434;
 	font-weight: normal;
